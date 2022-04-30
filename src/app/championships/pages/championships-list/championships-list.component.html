@@ -1,0 +1,45 @@
+<div class="viewport" >
+    <div fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="center center" >
+        <div *ngFor = "let championship of championships$ | async ">
+                <mat-card class="container border">
+                    <div fxLayoutAlign="end end">
+                        <img mat-card-image src="{{championship.logo}}" alt="" width="350" max-height="110">
+                        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item (click)="delete(championship)" color="warn">
+                                <mat-icon>delete</mat-icon>
+                            <span>Delete</span>
+                            </button>
+                            <button mat-menu-item (click)="openDialog(true, championship)" >
+                                <mat-icon>edit</mat-icon>
+                            <span>Edit</span>
+                            </button>
+                        </mat-menu>
+                    </div>
+                    <mat-card-content>
+                        <mat-card-title>{{championship.name}}</mat-card-title>
+                        <mat-card-subtitle>{{championship.years}}</mat-card-subtitle>
+                        <p>En savoir d'avantage sur : {{championship.name}}.</p>
+                    </mat-card-content>
+                    <mat-card-actions fxLayout="row" fxLayoutAlign="space-evenly none" >
+                        <a routerLink="{{championship.id}}/teams">
+                            <button fxFlex mat-raised-button color="primary">Équipe</button>
+                        </a>
+                        <a routerLink="{{championship.id}}/leaderboards">
+                            <button mat-raised-button color="primary">Classement</button>
+                        </a>
+                        <a routerLink="{{championship.id}}/drivers">
+                            <button fxFlex mat-raised-button color="primary">Pilote</button>
+                        </a>
+                    </mat-card-actions>
+                </mat-card>
+        </div>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="end end" class="example-button-container">
+        <button class="button-add" (click)="openDialog(false, undefined!)" router mat-fab color="primary">
+            <mat-icon>add</mat-icon>
+        </button>
+  </div>
+</div>    

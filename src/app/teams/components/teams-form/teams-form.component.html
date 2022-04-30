@@ -1,0 +1,74 @@
+<div class="viewport">
+  <mat-horizontal-stepper>
+    <mat-step [stepControl]="teamsForm">
+      <form [formGroup]="teamsForm" (ngSubmit)="teamsFormSend()">
+        <ng-template matStepLabel>Remplir les informations de l'équipe</ng-template>
+        <div fxLayout="column " fxLayoutAlign="start center" >
+            <div fxLayout="column" fxLayoutAlign="center center">
+              <div fxLayout="row wrap " fxLayoutAlign="center center" fxLayoutGap="10px">
+                <mat-form-field appearance="outline">
+                  <mat-label>Nom d'équipe</mat-label>
+                  <input [(ngModel)]="name" matInput type="text" placeholder="Nom..." formControlName="name" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Siège </mat-label>
+                  <input [(ngModel)]="base" matInput formControlName="base" placeholder="Pays" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Première Saison</mat-label>
+                  <input [(ngModel)]="startyear" matInput type="number" formControlName="startyear" placeholder="Année" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Drapeau <mat-icon>flag</mat-icon> </mat-label>
+                  <input [(ngModel)]="flag" matInput formControlName="flag" placeholder="Link du drapeau" required>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <mat-form-field appearance="outline">
+                  <mat-label>Directeur général</mat-label>
+                  <input [(ngModel)]="headchief" matInput type="text" placeholder="Directeur général" formControlName="headchief" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Directeur technique</mat-label>
+                  <input [(ngModel)]="headtech" matInput formControlName="headtech" placeholder="Directeur technique" required>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+              <mat-form-field appearance="outline">
+                <mat-label>Logo d'équipe</mat-label>
+                <input [(ngModel)]="logo" matInput  formControlName="logo" placeholder="Logo d'équipe" required>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Couleur d'équipe</mat-label>
+                <input [(ngModel)]="team_color" matInput  formControlName="team_color" placeholder="Hexcode..." required>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Voiture d'équipe</mat-label>
+                <input [(ngModel)]="car" matInput  formControlName="car" placeholder="Link de la voiture" required>
+              </mat-form-field>
+            </div>
+            <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+              <mat-form-field appearance="outline">
+                <mat-label>Points d'équipe</mat-label>
+                <input [(ngModel)]="teampoint" matInput type="number" formControlName="teampoint" placeholder="Nombre de points" required>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Championnat remporter</mat-label>
+                <input [(ngModel)]="teamchampionships" matInput type="number" formControlName="teamchampionships" placeholder="Championnat remporter" required>
+              </mat-form-field>
+            </div>
+            <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px" >
+              <button mat-raised-button [disabled]="!teamsForm.valid" color="primary" type="submit"><mat-icon>done</mat-icon>Crée cette équipe</button>
+              <button mat-raised-button color="primary" routerLink=".." matStepperPrevious>Retour à l'équipe</button>
+            </div>
+          </div>               
+      </form>
+      <div fxLayout="column " fxLayoutAlign="center center" fxLayoutGap="10px" >
+        <button mat-raised-button color="warn" (click)="handleClear()">Crée une nouvelle teams</button>
+      </div>
+    </mat-step> 
+    </mat-horizontal-stepper>
+</div>
+
+

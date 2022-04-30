@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "championat-formule1",
+    "staging": "championat-formule1"
+  },
+  "targets": {
+    "f1-front": {
+      "hosting": {
+        "f1-front": [
+          "f1-front"
+        ]
+      }
+    }
+  }
+}

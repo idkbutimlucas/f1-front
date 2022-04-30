@@ -1,0 +1,172 @@
+<div class="viewport">
+    
+    <mat-horizontal-stepper labelPosition="bottom" #stepper>
+        <mat-step [stepControl]="drivers1">
+          <form [formGroup]="drivers1" (ngSubmit)="drivers11()">
+            <ng-template matStepLabel  >Remplissez votre premier pilote</ng-template>
+            <div fxLayout="column" fxLayoutAlign="center center">
+              <div *ngIf="teams$ | async as team;">
+                <h1>Informations sur la couleur de l'équipe {{team.team_color}} et completer le numéro {{team.championshipid}} d'équipe.</h1>
+                <p>Veuillez tenir compte de ces informations pour une meilleure expérience.</p>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Couleur d'équipe</mat-label>
+                    <input matInput type="string" placeholder="Couleur d'équipe" formControlName="team_color" required>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Numéro d'équipe</mat-label>
+                    <input matInput type="number" placeholder="Numéro d'équipe" formControlName="championshipid" required>
+                  </mat-form-field>
+              </div>
+                <mat-form-field appearance="outline">
+                  <mat-label>Nom du pilote</mat-label>
+                  <input matInput type="text" placeholder="Nom / Prénom du pilote" formControlName="name" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Photo du pilote</mat-label>
+                  <input matInput type="text" placeholder="Lien de la photos" formControlName="picture" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Photo de profile du pilote</mat-label>
+                  <input matInput type="text" placeholder="Lien de la photo de profile" formControlName="profile" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Numéro de course du pilote</mat-label>
+                  <input matInput type="number" placeholder="Numéros de course du pilote" formControlName="drivernb" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Pays du pilote</mat-label>
+                  <input matInput type="text" placeholder="Pays du pilote" formControlName="country" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Ville du pilote</mat-label>
+                  <input matInput type="text" placeholder="Ville du pilote" formControlName="city" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Date de naissance du pilote</mat-label>
+                  <input matInput type="text" placeholder="Date de naissance du pilote" formControlName="dob" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Age du pilote</mat-label>
+                  <input matInput type="text" placeholder="Age du pilote" formControlName="age" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Drapeau du pays</mat-label>
+                  <input matInput type="text" placeholder="Lien du drapeau du pays" formControlName="flag" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Date d'arriver en F1</mat-label>
+                  <input matInput type="text" placeholder="Date d'arriver en F1 (dd/mm/yyyy)" formControlName="join_f1" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Nombre de gp</mat-label>
+                  <input matInput type="numtextber" placeholder="Nombre de GP" formControlName="gp" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline"> 
+                  <mat-label>Nombre de points</mat-label>
+                  <input matInput type="number" placeholder="Nombre de points" formControlName="points" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Nombre de podiums</mat-label>
+                  <input matInput type="number" placeholder="Nombre de podiums" formControlName="podiums" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Vainqueur de Championnat</mat-label>
+                  <input matInput type="number" placeholder="Vainqueur de Championnat" formControlName="champion" required>
+                </mat-form-field>
+              <button mat-raised-button matStepperNext  [disabled]="!drivers1.valid" type="submit" color="primary" cdkFocusInitial><mat-icon>done</mat-icon> Sauvegarder et suivant</button>
+            </div>                   
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="drivers2" >
+          <form [formGroup]="drivers2" (ngSubmit)="drivers22()">
+            <ng-template matStepLabel>Remplissez votre deuxième pilote </ng-template>
+            <div fxLayout="column" fxLayoutAlign="center center">
+              <div *ngIf="teams$ | async as team;">
+                <h1>Informations sur la couleur de l'équipe {{team.team_color}} et completer le numéro {{team.championshipid}} d'équipe.</h1>
+                <p>Veuillez tenir compte de ces informations pour une meilleure expérience.</p>
+                <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Couleur de l'équipe'</mat-label>
+                    <input matInput type="string" placeholder="Couleur de l'équipe" formControlName="team_color" required>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Numéro d'équipe</mat-label>
+                    <input matInput type="number" placeholder="Numéro d'équipe" formControlName="championshipid" required>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <mat-form-field appearance="outline">
+                  <mat-label>Nom du pilote</mat-label>
+                  <input matInput type="text" placeholder="Nom / Prenom du pilote" formControlName="name" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Photo du pilote</mat-label>
+                  <input matInput type="text" placeholder="lien de la photo du pilote" formControlName="picture" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Photo du pilote</mat-label>
+                  <input matInput type="text" placeholder="lien de la photo du pilote" formControlName="profile" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Numéro du pilote</mat-label>
+                  <input matInput type="number" placeholder="Numéro du pilote" formControlName="drivernb" required>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <mat-form-field appearance="outline">
+                  <mat-label>Pays du pilote</mat-label>
+                  <input matInput type="text" placeholder="Pays du pilote" formControlName="country" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Ville du pilote</mat-label>
+                  <input matInput type="text" placeholder="Ville du pilote" formControlName="city" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Date de naissance du pilote</mat-label>
+                  <input matInput type="text" placeholder="Date de naissance du pilote (dd/mm/yyyy)" formControlName="dob" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Age du pilote</mat-label>
+                  <input matInput type="number" placeholder="Age du pilote" formControlName="age" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Drapeau du pays</mat-label>
+                  <input matInput type="text" placeholder="Lien du drapeau du pays" formControlName="flag" required>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <mat-form-field appearance="outline">
+                  <mat-label>Année d'arriver en F1</mat-label>
+                  <input matInput type="number" placeholder="Année d'arriver en F1" formControlName="join_f1" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Nombre de GP</mat-label>
+                  <input matInput type="number" placeholder="Nombre de gp" formControlName="gp" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Nombre de points</mat-label>
+                  <input matInput type="number" placeholder="Nombre de points" formControlName="points" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Nombre de podiums</mat-label>
+                  <input matInput type="number" placeholder="Nombre de podiums" formControlName="podiums" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Vainqueur de Championnat</mat-label>
+                  <input matInput type="number" placeholder="Vainqueur de Championnat" formControlName="champion" required>
+                </mat-form-field>
+              </div>
+              <button mat-raised-button [disabled]="!drivers2.valid" matStepperNext type="submit" color="primary" cdkFocusInitial><mat-icon>done</mat-icon> Sauvegarder et suivant</button>
+            </div>                   
+          </form>
+      </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Sauvegarder</ng-template>
+          <div fxLayout="column" fxLayoutAlign="center center">
+            <p>Les deux pilotes ont été créés. Vous pouvez les éditer pour insérer le reste des informations.</p>
+            <button routerLink=".." mat-raised-button color="primary" >Voir les détails de l'équipe</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </div>  

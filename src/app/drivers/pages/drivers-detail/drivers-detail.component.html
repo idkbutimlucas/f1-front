@@ -1,0 +1,50 @@
+<div class="viewport">
+    <div *ngIf="drivers$ | async as driver;">
+        <mat-list>
+                <mat-list-item fxLayout="row" fxLayoutAlign="end start">
+                    <button mat-raised-button (click)="openDialog(true,driver)" color="accent" ><mat-icon>edit</mat-icon>Editer</button>
+                    <button mat-raised-button (click)="delete(driver)" color="warn"><mat-icon>delete</mat-icon>Supprimer</button>
+                    <button mat-raised-button routerLink=".."  >Retour</button>
+
+                </mat-list-item>
+                <mat-divider style="border : solid 1px {{driver.team_color}};"></mat-divider>
+        </mat-list>
+        
+        <div fxLayout="row wrap" fxLayoutAlign="space-evenly start" >
+            <div fxLayout="row" fxLayoutAlign="start none">
+                <img src="{{driver.picture}}" alt="" width="763" >
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center" class="margin-top">
+                <h1>{{driver.name}}</h1>
+                <h1>{{driver.drivernb}} - <img class="flag" src="{{driver.flag}}" width="45"></h1>
+                <p>Pilote pour {{driver.team_name}}</p>
+                <div  fxLayout="column" fxLayoutAlign="start none" fxLayoutGap="50px">  
+                    <div class="margin-top" class="container" style="border-top: solid 2px {{driver.team_color}};">
+                        <div fxLayout="column"  fxLayoutAlign="start start">
+                            <h2 style="border-bottom: solid 2px {{driver.team_color}}">Vie</h2>
+                        </div>
+                        <div fxLayout="column"  fxLayoutAlign="start start">
+                            <p>Né à {{driver.country}}, {{driver.city}} le {{driver.dob}}.</p>
+                            <p>{{driver.name}} à trouver la passion de la course en commençant par le karting.</p>
+                            <p>Comme il progresse au fil des années. En {{driver.join_f1}}, il a finalement rejoint ce qu'il souhaitait la formule 1</p>
+                            <p>A {{driver.age}} ans, il pilote maintenant pour {{driver.team_name}}.</p>
+                        </div>
+                    </div>
+                    <div class="container" style="border-top: solid 2px {{driver.team_color}}">
+                        <div fxLayout="column" fxLayoutAlign="start start">
+                            <h2 style="border-bottom: solid 2px {{driver.team_color}}">Carrière</h2>
+                        </div>
+                        <div fxLayout="column"  fxLayoutAlign="start start">
+                            <p>{{driver.name}}fait pas mal de course, {{driver.gp}} pour être exacte</p>
+                            <p>Dans ces courses, il a réussi à trouver et à marquer {{driver.points}} points.</p>
+                            <p>Finalement, il a terminé sur le podium {{driver.podiums}} fois.</p>
+                            <p>Mais surtout. Champion du monde {{driver.champion}} fois.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>   
+        
+    </div> 
+</div>  
+

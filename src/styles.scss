@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@angular/material/theming";
+@include mat-core();
+
+html, body { height: 100%; }
+body {
+    position: relative;
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #fff; 
+}
+.mat-toolbar.mat-primary {
+    background-color: #93C5FD;
+}
+.mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit{
+    background-color: #93C5FD;
+}
+.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary{
+    background-color: #93C5FD;
+    margin-bottom: 30px;
+}
+.mat-button-base{
+    color: #525252 !important; 
+}
+.viewport .mat-button-base{
+    color: #fff !important; 
+}
+.mat-list-base .mat-list-item .mat-button-base{
+    color: #000000 !important;
+}
+h1{
+    color: #525252 !important;
+}
+.mat-card{
+    padding: 20px !important;
+}
+.mat-dialog-container{
+    width: 700px !important;
+}
+.mat-dialog-container .mat-h2, .mat-title, .mat-typography h2{
+    text-align: center;
+}
+.mat-form-field-appearance-outline {
+    width: 100% !important;
+}

@@ -1,0 +1,27 @@
+    <form [formGroup]="championshipsForm" (ngSubmit)="onSubmit(championshipsForm.value)">
+      <h2 mat-dialog-title>Championship FORM</h2>
+      <mat-dialog-content class="mat-typography">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Championship name</mat-label>
+            <input matInput type="text" formControlName="name" placeholder="F..." required>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Years</mat-label>
+            <input matInput type="number" formControlName="years" placeholder="2021" required>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Championship Logo</mat-label>
+            <input matInput type="text" placeholder="Link to the logo" formControlName="logo" required>
+          </mat-form-field>
+        </div>
+      </mat-dialog-content>
+      <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button type="submit" cdkFocusInitial [disabled]="!championshipsForm.valid">{{formAction}}</button>
+      </mat-dialog-actions>
+    </form>
